@@ -1,6 +1,7 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
 <html>
-<body>
-<h2>Hello World!</h2>
-<jsp:forward page="/pages/start.jsf" />
-</body>
+<head></head>
+	<body>
+		<jsp:forward page="/pages/start.jsf" />
+	</body>
 </html>
