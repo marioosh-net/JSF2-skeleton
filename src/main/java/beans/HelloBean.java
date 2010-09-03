@@ -6,7 +6,7 @@ import javax.faces.bean.RequestScoped;
 @ManagedBean
 @RequestScoped
 public class HelloBean {
-	private String message;
+	private String message = "Hello World";
 
 	public String getMessage() {
 		return message;
