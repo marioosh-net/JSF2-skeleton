@@ -45,6 +45,7 @@
 		</repository>
 	</repositories>
 	<dependencies>
+		<!-- spring webflow 
 		<dependency>
 			<groupId>org.springframework.webflow</groupId>
 			<artifactId>org.springframework.binding</artifactId>
@@ -65,6 +66,7 @@
 			<artifactId>org.springframework.faces</artifactId>
 			<version>2.0.9.RELEASE</version>
 		</dependency>
+		-->		
 		<dependency>
 			<groupId>com.sun.faces</groupId>
 			<artifactId>jsf-api</artifactId>
@@ -86,6 +88,11 @@
 			<groupId>javax.servlet</groupId>
 			<artifactId>servlet-api</artifactId>
 			<version>2.5</version>
+		</dependency>
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.15</version>
 		</dependency>
 	</dependencies>
 </project>

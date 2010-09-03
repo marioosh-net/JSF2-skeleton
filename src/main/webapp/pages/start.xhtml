@@ -13,5 +13,56 @@
    ;) -->
   <body>
 		#{helloBean.message}
+		
+		
+			<h:form><h:commandLink value="reload" action="start" /></h:form>
+	<div>#{testBean.time}</div>
+	
+	<h2>Ajax</h2>
+	<h:form id="form1">
+		<div>
+			<h:commandButton value="Ajax Update" actionListener="#{testBean.testActionListener}" action="#{testBean.testAction(2)}" >
+				<f:ajax render="form1:updateMe" />
+			</h:commandButton>
+			<h:panelGroup id="updateMe">
+				#{testBean.time}
+			</h:panelGroup>
+			#{testBean.text}
+		</div>
+		<div>
+			<h:inputText value="#{testBean.text}">
+				<f:ajax render="form1:updateMeToo form1:andUpdateMeToo" event="keyup" listener="#{testBean.fAjaxListener}" />
+			</h:inputText>	
+			<h:panelGroup id="updateMeToo">
+				#{testBean.time}
+			</h:panelGroup>
+			<h:panelGroup id="andUpdateMeToo">
+				#{testBean.text}
+			</h:panelGroup>				
+		</div>		
+		
+		<div>
+			<h:inputText value="#{testBean.text}"/>
+		</div>
+	</h:form>
+	
+	<h:form id="form2">
+		<h:inputText value="#{testBean.text}"/>
+	</h:form>
+	
+	<h:form id="form3">
+		<h:inputText value="#{testBean.text}">
+			<f:ajax render="form3" event="keyup"/>
+		</h:inputText>
+		<h:outputText value="#{testBean.text}" />
+	</h:form>
+	
+	
+	<h2>Validation</h2>
+	<h:form>
+		<h:inputText id="validatedText" value="#{testBean.validatedText}">
+			<f:validateRequired />
+		</h:inputText>
+	</h:form>
   </body>
 </html>
