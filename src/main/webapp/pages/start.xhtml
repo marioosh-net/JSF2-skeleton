@@ -21,7 +21,7 @@
 	<h2>Ajax</h2>
 	<h:form id="form1">
 		<div>
-			<h:commandButton value="Ajax Update" actionListener="#{testBean.testActionListener}" action="#{testBean.testAction(2)}" >
+			<h:commandButton value="Ajax Update" actionListener="#{testBean.testActionListener}" action="#{testBean.testAction}" >
 				<f:ajax render="form1:updateMe" />
 			</h:commandButton>
 			<h:panelGroup id="updateMe">

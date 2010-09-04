@@ -30,8 +30,8 @@ public class TestBean implements Serializable {
 		return sdf.format(new Date());
 	}
 
-	public String testAction(int s) {
-		log.debug("testAction(" + s + ")");
+	public String testAction() {
+		//log.debug("testAction(" + s + ")");
 		return null;
 	}
 
