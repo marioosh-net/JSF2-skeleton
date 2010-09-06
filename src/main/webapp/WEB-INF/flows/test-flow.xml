@@ -7,7 +7,7 @@
 	start-state="testFlow">
 	
 	<var name="helloBean" class="beans.HelloBean" />
-	<view-state id="testFlow" view="/WEB-INF/pages/start.xhtml">
+	<view-state id="testFlow" view="/pages/start.xhtml">
 		<transition on="post" to="testFlow" />
 	</view-state>
 </flow>
