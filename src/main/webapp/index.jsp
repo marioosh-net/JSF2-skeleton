@@ -2,6 +2,6 @@
 <html>
 <head></head>
 	<body>
-		<jsp:forward page="/pages/start.jsf" />
+		<jsp:forward page="/flows/test-flow" />
 	</body>
 </html>
