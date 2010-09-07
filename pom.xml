@@ -82,7 +82,7 @@
 			<version>2.1.0-SNAPSHOT</version>
 			<scope>compile</scope>
 		</dependency>
-		<!-- 
+		<!-- wchodza w konfilkt z libami servera 
 		<dependency>
 			<groupId>javax.el</groupId>
 			<artifactId>el-api</artifactId>
@@ -93,7 +93,7 @@
 			<artifactId>el-impl</artifactId>
 			<version>2.2</version>
 		</dependency>
-		 -->
+		-->
 		<!--  -->
 		<!-- jsf 1.2
 		<dependency>
