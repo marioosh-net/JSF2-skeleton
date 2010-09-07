@@ -6,7 +6,7 @@
 						http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd"
 	start-state="testFlow">
 	
-	<var name="helloBean" class="beans.HelloBean" />
+	<!-- <var name="helloBean" class="beans.HelloBean" /> -->
 	<view-state id="testFlow" view="/pages/start.xhtml">
 		<transition on="post" to="testFlow" />
 	</view-state>
