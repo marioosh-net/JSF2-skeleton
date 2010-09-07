@@ -24,6 +24,11 @@
 	<!-- Enables FlowHandler URL mapping -->
 	<bean class="org.springframework.webflow.mvc.servlet.FlowHandlerAdapter">
 	    <property name="flowExecutor" ref="flowExecutor" />
+	    <!-- to jest w nowszej wersji
+		<property name="ajaxHandler">
+			<bean class="org.springframework.faces.webflow.JsfAjaxHandler" />
+		</property>	    
+		-->
 	</bean>
 
 	<!-- Maps request paths to flows in the flowRegistry;
