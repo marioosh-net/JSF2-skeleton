@@ -53,6 +53,20 @@
 			<name>ibiblio repo</name>
 			<url>http://mirrors.ibiblio.org/pub/mirrors/maven2</url>
 		</repository>
+
+
+		<repository>
+			<id>com.springsource.repository.bundles.release</id>
+			<name>SpringSource Enterprise Bundle Repository - SpringSource Bundle Releases</name>
+			<url>http://repository.springsource.com/maven/bundles/release</url>
+		</repository>
+
+		<repository>
+			<id>com.springsource.repository.bundles.external</id>
+			<name>SpringSource Enterprise Bundle Repository - External Bundle Releases</name>
+			<url>http://repository.springsource.com/maven/bundles/external</url>
+		</repository>
+
 	</repositories>
 	<dependencies>
 		<!-- jsf 2.0 
@@ -130,26 +144,28 @@
 			<artifactId>commons-dbcp</artifactId>
 			<version>1.4</version>
 		</dependency>
+		<!-- spring web flow -->
 		<dependency>
 			<groupId>org.springframework.webflow</groupId>
-			<artifactId>spring-webflow</artifactId>
-			<version>2.2.0.M1</version>
+			<artifactId>org.springframework.faces</artifactId>
+			<version>2.1.1.RELEASE</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
-			<artifactId>spring-tx</artifactId>
-			<version>3.0.4.RELEASE</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.webflow</groupId>
-			<artifactId>spring-faces</artifactId>
-			<version>2.2.0.M1</version>
+			<artifactId>org.springframework.transaction</artifactId>
+			<version>3.0.3.RELEASE</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
-			<artifactId>spring-orm</artifactId>
+			<artifactId>org.springframework.orm</artifactId>
 			<version>3.0.4.RELEASE</version>
 		</dependency>
+		<!--
+			<dependency> <groupId>org.springframework.webflow</groupId> <artifactId>spring-webflow</artifactId> <version>2.2.0.M1</version> </dependency> <dependency> <groupId>org.springframework</groupId> <artifactId>spring-tx</artifactId> <version>3.0.4.RELEASE</version> </dependency> <dependency> <groupId>org.springframework.webflow</groupId> <artifactId>spring-faces</artifactId>
+			<version>2.2.0.M1</version> </dependency> <dependency> <groupId>org.springframework</groupId> <artifactId>spring-orm</artifactId> <version>3.0.4.RELEASE</version> </dependency>
+		-->
+		<!-- spring web flow END -->
+
 		<!--
 		<dependency>
 			<groupId>org.hibernate</groupId>

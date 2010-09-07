@@ -52,7 +52,7 @@
 			<param-name>contextConfigLocation</param-name>
 			<param-value></param-value>
 		</init-param>
-		<load-on-startup>1</load-on-startup>
+		<load-on-startup>2</load-on-startup>
 	</servlet>
 
 	<!-- Map all /spring requests to the Dispatcher Servlet for handling -->
