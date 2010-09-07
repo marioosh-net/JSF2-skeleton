@@ -1,10 +1,10 @@
 package beans;
 
-import javax.faces.bean.ManagedBean;
+/*import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 
 @ManagedBean
-@RequestScoped
+@RequestScoped*/
 public class HelloBean {
 	private String message = "Hello World";
 

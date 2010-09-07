@@ -48,8 +48,14 @@
 			<name>Spring Repository for Maven Milestone</name>
 			<url>http://maven.springframework.org/milestone</url>
 		</repository>
+		<repository>
+			<id>ibiblio repo</id>
+			<name>ibiblio repo</name>
+			<url>http://mirrors.ibiblio.org/pub/mirrors/maven2</url>
+		</repository>
 	</repositories>
 	<dependencies>
+		<!-- jsf 2.0 
 		<dependency>
 			<groupId>com.sun.faces</groupId>
 			<artifactId>jsf-api</artifactId>
@@ -62,16 +68,8 @@
 			<version>2.1.0-SNAPSHOT</version>
 			<scope>compile</scope>
 		</dependency>
-		<dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>jstl</artifactId>
-			<version>1.2</version>
-		</dependency>
-		<dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>servlet-api</artifactId>
-			<version>2.5</version>
-		</dependency>
+		-->
+		<!-- 
 		<dependency>
 			<groupId>javax.el</groupId>
 			<artifactId>el-api</artifactId>
@@ -82,6 +80,36 @@
 			<artifactId>el-impl</artifactId>
 			<version>2.2</version>
 		</dependency>
+		 -->
+		<!-- jsf 1.2 -->
+		<dependency>
+			<groupId>javax.faces</groupId>
+			<artifactId>jsf-api</artifactId>
+			<version>1.2_02</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.faces</groupId>
+			<artifactId>jsf-impl</artifactId>
+			<version>1.2-b19</version>
+		</dependency>
+		<dependency>
+			<groupId>com.sun.facelets</groupId>
+			<artifactId>jsf-facelets</artifactId>
+			<version>1.1.14</version>
+		</dependency>
+		<!--  -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+			<version>1.2</version>
+		</dependency>
+		<!-- 
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<version>2.5</version>
+		</dependency>
+		-->
 		<dependency>
 			<groupId>log4j</groupId>
 			<artifactId>log4j</artifactId>
@@ -105,7 +133,7 @@
 		<dependency>
 			<groupId>org.springframework.webflow</groupId>
 			<artifactId>spring-webflow</artifactId>
-			<version>2.1.1.RELEASE</version>
+			<version>2.2.0.M1</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -159,10 +187,12 @@
 			<artifactId>commons-collections</artifactId>
 			<version>3.2.1</version>
 		</dependency>
+		<!-- 
 		<dependency>
 			<groupId>javax.servlet.jsp</groupId>
 			<artifactId>jsp-api</artifactId>
 			<version>2.1</version>
 		</dependency>
+		 -->
 	</dependencies>
 </project>

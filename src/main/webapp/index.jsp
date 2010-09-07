@@ -2,8 +2,7 @@
 <html>
 <head></head>
 	<body>
-		Hello World
-		<!-- <jsp:forward page="/flows/test-flow" /> -->
-		<!-- <jsp:forward page="/pages/start.jsf" /> -->
+		<jsp:forward page="/flows/test-flow" />
+		<%-- <jsp:forward page="/pages/start.jsf" /> --%>
 	</body>
 </html>

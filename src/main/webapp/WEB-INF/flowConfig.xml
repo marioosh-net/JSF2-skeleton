@@ -10,6 +10,66 @@
            http://www.springframework.org/schema/faces
            http://www.springframework.org/schema/faces/spring-faces-2.0.xsd">
 
+	<!-- mvc -->
+	<!--
+		Mapuje ścieżki żądań (URL-ów) na przepływy w rejestrze przepływów np.
+		ścieżka /hotels/booking poszukuje przepływu z id "hotels/booking".
+		FlowHandlerMapping pomaga DispatchServlet'owi określić jak/gdzie
+		przesyłać żądania przepływów do FlowHandlerAdapter'a.
+	-->
+	<bean class="org.springframework.webflow.mvc.servlet.FlowHandlerMapping">
+		<property name="order" value="1" />
+		<property name="flowRegistry" ref="flowRegistry" />
+		<property name="defaultHandler">
+			<!--
+				Jeżeli nie pasuje żaden przepływ, mapuj ścieżkę na widok do
+				renderowania np. ścieżka "/intro" zostanie zmapowania na widok
+				"intro"
+			-->
+			<bean class="org.springframework.web.servlet.mvc.UrlFilenameViewController" />
+		</property>
+	</bean>
+
+	<!--
+		Mapuje logiczne nazwy widoków na odpowiednie facelet'owe strony w
+		danej ścieżce
+	-->
+	<bean id="faceletsViewResolver"
+		class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+		<property name="viewClass" value="org.springframework.faces.mvc.JsfView" />
+		<property name="prefix" value="/pages/" />
+		<property name="suffix" value=".xhtml" />
+	</bean>
+
+	<!--
+		Definicja ziarna odpowiedzialnego za przekierowanie żądań do
+		komponentu odpowiedzialnego za wykonywanie przepływów (flowExecutor).
+		Most pomiędzy Spring MVC Dispatcher Servlet a flow executor'em,
+		obsługujący żądania i manipulujący przepływani z tych żądań.
+	-->
+	<bean class="org.springframework.webflow.mvc.servlet.FlowHandlerAdapter">
+		<property name="flowExecutor" ref="flowExecutor" />
+		<!-- Włączenie obsługi ajax'owych komponentów RichFaces'ów -->
+		<!-- <property name="ajaxHandler">
+			<bean class="org.springframework.faces.richfaces.RichFacesAjaxHandler" />
+			
+				<bean class="org.springframework.faces.webflow.JsfAjaxHandler" />
+			
+		</property> -->
+	</bean>
+
+	<bean
+		class="org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter" />
+
+	<!--
+		Przesłanie żądań zmapowanych do implementacji
+		org.springframework.web.HttpRequestHandler
+	-->
+	<bean class="org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter" />	
+	<!-- mvc end -->
+
+
+
 	<!-- Główny silnik wykonujący Przepływy -->
 	<webflow:flow-executor id="flowExecutor">
 		<webflow:flow-execution-listeners>

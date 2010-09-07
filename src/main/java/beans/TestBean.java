@@ -3,13 +3,13 @@ package beans;
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
 import javax.faces.event.ActionEvent;
 import org.apache.log4j.Logger;
+/*import javax.faces.bean.ManagedBean;
+import javax.faces.bean.RequestScoped;
 
 @ManagedBean
-@RequestScoped
+@RequestScoped*/
 public class TestBean implements Serializable {
 	private static final long serialVersionUID = 1990585830530945577L;
 	private Logger log = Logger.getLogger(getClass());
