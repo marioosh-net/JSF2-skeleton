@@ -4,14 +4,14 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core">
 
-<head>
+<h:head>
 	<title>jsf2_maven</title>
-</head>
+</h:head>
 
   <!-- jak sie nie uzyje h:head to ajax nie dziala, bo nie zostanie dodane:
   <script type="text/javascript" src=".../javax.faces.resource/jsf.js.jsf?ln=javax.faces"></script>
    ;) -->
   <body>
-		#{helloBean.message}
+	#{helloBean.message}
   </body>
 </html>
