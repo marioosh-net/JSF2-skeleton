@@ -6,7 +6,7 @@
 						http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd">
 	
 	<!-- flow variables -->
-	<!-- in jsf #{helloBean} -->
+	<!-- w jsf #{helloBean} -->
 	<var name="helloBean" class="beans.HelloBean" />
 	
 	<!-- pierwszy view-state jest startowym -->	
@@ -15,7 +15,7 @@
 		<transition on="yes">
 			<set name="helloBean.message" value="'Kliknales TAK'" />
 			
-			<!-- flowScope.hash -> in jsf #{hash}-->
+			<!-- flowScope.hash -> w jsf #{hash}-->
 			<evaluate expression="helloBean.nextRandomString()" result="flowScope.hash" />
 			<render fragments="time" />
 		</transition>
@@ -25,6 +25,16 @@
 		</transition>
 	</view-state>
 
+	<view-state id="error" view="/pages/error.xhtml">
+		<transition on="start" to="testFlow" />
+	</view-state>
+	
 	<end-state id="end" view="/pages/end.xhtml"/>
 	
+	<!-- tranzycje dostepne z kazdego state'a -->
+	<global-transitions>
+		<transition on-exception="java.lang.Throwable" to="error" />
+	</global-transitions>
+	
+
 </flow>
