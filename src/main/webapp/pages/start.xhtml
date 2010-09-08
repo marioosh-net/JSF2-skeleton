@@ -12,7 +12,7 @@
   <script type="text/javascript" src=".../javax.faces.resource/jsf.js.jsf?ln=javax.faces"></script>
    ;) -->
   <body>
-	#{helloBean.message}
+	#{helloBean.message}:#{testBean.time}
 	
 	<h:form id="form1">
 		<h:commandButton value="Ajax Update" actionListener="#{testBean.testActionListener}" action="#{testBean.testAction}" >
