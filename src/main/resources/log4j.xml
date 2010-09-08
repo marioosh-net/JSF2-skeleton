@@ -93,6 +93,7 @@
 		<appender-ref ref="file_model" />
 	</logger>
 	
+	<!-- 
 	<logger name="org.springframework.webflow">
 		<level value="debug" />
 		<appender-ref ref="file_all"/>
@@ -112,6 +113,7 @@
 		<level value="debug" />
 		<appender-ref ref="file_all"/>
 	</logger>
+	 -->
 	
 	<!-- LOGGERY END -->
 

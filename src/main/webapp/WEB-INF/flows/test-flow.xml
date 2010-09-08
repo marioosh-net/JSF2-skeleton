@@ -23,7 +23,15 @@
 		<transition on="no">
 			<set name="helloBean.message" value="'Kliknales NIE'" />
 		</transition>
+		
+		<transition on="go" to="action1"/>
 	</view-state>
+	
+	<action-state id="action1">
+		<evaluate expression="helloBean.action()"/>
+		<transition on="good" to="end"/>
+		<transition on="bad" to="testFlow"/>
+	</action-state>
 
 	<view-state id="error" view="/pages/error.xhtml">
 		<transition on="start" to="testFlow" />
@@ -32,9 +40,10 @@
 	<end-state id="end" view="/pages/end.xhtml"/>
 	
 	<!-- tranzycje dostepne z kazdego state'a -->
+	<!-- 
 	<global-transitions>
 		<transition on-exception="java.lang.Throwable" to="error" />
 	</global-transitions>
-	
+	 -->
 
 </flow>

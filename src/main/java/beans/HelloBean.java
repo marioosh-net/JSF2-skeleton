@@ -3,6 +3,8 @@ package beans;
 import java.io.Serializable;
 import java.math.BigInteger;
 import java.security.SecureRandom;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
@@ -37,6 +39,18 @@ public class HelloBean implements Serializable {
 
 	public String nextRandomString() {
 		return new BigInteger(130, randomString).toString(32);
+	}
+	
+	public String action() {
+		SimpleDateFormat sdf = new SimpleDateFormat("SS");
+		int a = Integer.parseInt(sdf.format(new Date()));
+		int k = a%10;
+		log.debug("k: "+k);
+		if(k > 5) {
+			return "good";
+		} else {
+			return "bad";
+		}
 	}
 
 }
