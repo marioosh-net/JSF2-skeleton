@@ -1,6 +1,8 @@
 package beans;
 
 import java.io.Serializable;
+import java.math.BigInteger;
+import java.security.SecureRandom;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
@@ -26,4 +28,15 @@ public class HelloBean implements Serializable {
 	public void setMessage(String message) {
 		this.message = message;
 	}
+	
+	public void test() {
+		log.debug("test()");
+	}
+	
+	private SecureRandom randomString = new SecureRandom();
+
+	public String nextRandomString() {
+		return new BigInteger(130, randomString).toString(32);
+	}
+
 }
