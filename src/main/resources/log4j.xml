@@ -62,7 +62,7 @@
 	<!-- APPENDERY END -->
 
 	<!-- LOGGERY -->
-	<logger name="jsf2.model">
+	<logger name="beans">
 		<level value="debug" />
 		<appender-ref ref="file_model" />
 	</logger>

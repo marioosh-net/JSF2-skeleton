@@ -5,17 +5,20 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/webflow
 						http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd">
 	
+	<!-- flow variables -->
+	<!-- in jsf #{helloBean} -->
+	<var name="helloBean" class="beans.HelloBean" />
+	
 	<!-- pierwszy view-state jest startowym -->	
-	<!-- <var name="helloBean" class="beans.HelloBean" /> -->
 	<view-state id="testFlow" view="/pages/start.xhtml">
 		
-		<transition on="post"/>
 		<transition on="yes">
-			
+			<set name="helloBean.message" value="'Kliknales TAK'" />
+			<render fragments="time" />
 		</transition>
 		
 		<transition on="no">
-			
+			<set name="helloBean.message" value="'Kliknales NIE'" />
 		</transition>
 	</view-state>
 </flow>
