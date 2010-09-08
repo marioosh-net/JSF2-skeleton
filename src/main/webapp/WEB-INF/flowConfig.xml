@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:webflow="http://www.springframework.org/schema/webflow-config"
-	xmlns:faces="http://www.springframework.org/schema/faces"
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:webflow="http://www.springframework.org/schema/webflow-config" xmlns:faces="http://www.springframework.org/schema/faces"
 	xsi:schemaLocation="
            http://www.springframework.org/schema/beans
            http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
@@ -11,7 +9,13 @@
            http://www.springframework.org/schema/faces/spring-faces-2.0.xsd">
 
 	<!-- Executes flows: the central entry point into the Spring Web Flow system -->
-	<webflow:flow-executor id="flowExecutor" />
+	<webflow:flow-executor id="flowExecutor" >
+		<!-- 2.2.0M1 -->
+		<webflow:flow-execution-listeners>
+			<webflow:listener ref="facesContextListener" />
+		</webflow:flow-execution-listeners>
+		<!-- 2.2.0M1 END -->	
+	</webflow:flow-executor>
 
 	<!-- The registry of executable flow definitions -->
 	<webflow:flow-registry id="flowRegistry" flow-builder-services="facesFlowBuilderServices" base-path="/WEB-INF/flows">
@@ -23,19 +27,23 @@
 
 	<!-- Enables FlowHandler URL mapping -->
 	<bean class="org.springframework.webflow.mvc.servlet.FlowHandlerAdapter">
-	    <property name="flowExecutor" ref="flowExecutor" />
-	    <!-- to jest w nowszej wersji
+		<property name="flowExecutor" ref="flowExecutor" />
+		<!-- 2.2.0M1 -->
 		<property name="ajaxHandler">
 			<bean class="org.springframework.faces.webflow.JsfAjaxHandler" />
-		</property>	    
-		-->
+		</property>
+		<!-- 2.2.0M1 END -->
 	</bean>
 
 	<!-- Maps request paths to flows in the flowRegistry;
-	     e.g. a path of /hotels/booking looks for a flow with id "hotels/booking" -->		
+	     e.g. a path of /hotels/booking looks for a flow with id "hotels/booking" -->
 	<bean class="org.springframework.webflow.mvc.servlet.FlowHandlerMapping">
-	    <property name="flowRegistry" ref="flowRegistry"/>
-	    <property name="order" value="0"/>
+		<property name="flowRegistry" ref="flowRegistry" />
+		<property name="order" value="0" />
 	</bean>
+
+	<!-- 2.2.0M1 -->
+	<bean id="facesContextListener" class="org.springframework.faces.webflow.FlowFacesContextLifecycleListener" />
+	<!-- 2.2.0M1 END -->
 
 </beans>
