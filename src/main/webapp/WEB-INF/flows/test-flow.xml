@@ -21,4 +21,7 @@
 			<set name="helloBean.message" value="'Kliknales NIE'" />
 		</transition>
 	</view-state>
+
+	<end-state id="end" view="/pages/end.xhtml"/>
+	
 </flow>
