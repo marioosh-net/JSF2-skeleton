@@ -45,7 +45,7 @@ public class HelloBean implements Serializable {
 		SimpleDateFormat sdf = new SimpleDateFormat("SS");
 		int a = Integer.parseInt(sdf.format(new Date()));
 		int k = a%10;
-		log.debug("k: "+k);
+		//log.debug("k: "+k);
 		if(k > 2) {
 			return "good";
 		} else {
