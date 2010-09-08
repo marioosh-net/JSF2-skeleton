@@ -46,7 +46,7 @@ public class HelloBean implements Serializable {
 		int a = Integer.parseInt(sdf.format(new Date()));
 		int k = a%10;
 		log.debug("k: "+k);
-		if(k > 5) {
+		if(k > 2) {
 			return "good";
 		} else {
 			return "bad";
