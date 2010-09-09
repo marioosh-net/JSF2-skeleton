@@ -10,7 +10,7 @@
 	<var name="helloBean" class="beans.HelloBean" />
 	
 	<!-- pierwszy view-state jest startowym -->	
-	<view-state id="testFlow" view="/pages/start.xhtml">
+	<view-state id="start">
 		
 		<transition on="yes">
 			<set name="helloBean.message" value="'Kliknales TAK'" />
@@ -30,14 +30,14 @@
 	<action-state id="action1">
 		<evaluate expression="helloBean.action()"/>
 		<transition on="good" to="end"/>
-		<transition on="bad" to="testFlow"/>
+		<transition on="bad" to="start"/>
 	</action-state>
 
-	<view-state id="error" view="/pages/error.xhtml">
-		<transition on="start" to="testFlow" />
+	<view-state id="error">
+		<transition on="start" to="start" />
 	</view-state>
 	
-	<end-state id="end" view="/pages/end.xhtml"/>
+	<end-state id="end"/>
 	
 	<!-- tranzycje dostepne z kazdego state'a -->
 	<!-- 
