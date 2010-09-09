@@ -15,15 +15,15 @@ import org.apache.log4j.Logger;
 public class HelloBean implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
-	private transient Logger log = Logger.getLogger(getClass());
+	private static Logger log = Logger.getLogger(HelloBean.class);
 	private String message = "Hello World";
-
 	
 	public HelloBean() {
-		log.debug("HelloBean()");
+		log.debug("---------- HelloBean("+new Date()+") "+this);
 	}
 	
 	public String getMessage() {
+		log.debug("----------" + this);
 		return message;
 	}
 
@@ -46,6 +46,7 @@ public class HelloBean implements Serializable {
 		int a = Integer.parseInt(sdf.format(new Date()));
 		int k = a%10;
 		//log.debug("k: "+k);
+		System.out.println("k: "+k);
 		if(k > 2) {
 			return "good";
 		} else {
