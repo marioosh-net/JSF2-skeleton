@@ -42,12 +42,13 @@
 			<render fragments="toReload"/>
 		</transition>
 		
-		<transition on="details" to="details">
-			<set name="flowScope.product" value="products.selectedRow"/>
-		</transition>
+		<transition on="details" to="details"/>
 	</view-state>
 	
 	<view-state id="details">
+		<on-entry>
+			<set name="viewScope.product" value="products.selectedRow"/>
+		</on-entry>
 		<transition on="back" to="list"/>
 	</view-state>
 
