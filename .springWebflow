@@ -7,5 +7,13 @@
 			<file>src/main/webapp/WEB-INF/flows/start-flow.xml</file>
 			<name><![CDATA[start-flow]]></name>
 		</config>
+		<config>
+			<file>src/main/webapp/WEB-INF/flows/test-flow.xml</file>
+			<name><![CDATA[test-flow]]></name>
+		</config>
+		<config>
+			<file>src/main/webapp/WEB-INF/flows/products/products-flow.xml</file>
+			<name><![CDATA[products-flow]]></name>
+		</config>
 	</configs>
 </webflow-project-description>
