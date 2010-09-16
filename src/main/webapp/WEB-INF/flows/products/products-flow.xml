@@ -11,22 +11,28 @@
 			<evaluate expression="testBean.getAllUsers()" result-type="dataModel" result="flowScope.users"/>
 			<evaluate expression="testBean.getAllProducts()" result-type="dataModel" result="flowScope.products"/>
 		</on-render>
-		
-		<transition on="deleteUser">
-			<set name="flowScope.user" value="users.selectedRow"/>
-			<evaluate expression="testBean.deleteUser(user)"/>
-		</transition>
-		<transition on="deleteProduct">
-			<set name="flowScope.product" value="products.selectedRow"/>
-			<evaluate expression="testBean.deleteProduct(product)"/>
-		</transition>		
-		
 		<transition on="addUser">
 			<evaluate expression="testBean.addRandomUser()"/>
 		</transition>	
 		<transition on="addProduct">
 			<evaluate expression="testBean.addRandomProduct()"/>
 		</transition>
+		<!-- delete by object -->		
+		<transition on="deleteUser">
+			<evaluate expression="testBean.deleteUser(users.selectedRow)"/>
+		</transition>
+		<!-- delete by id - TAK TEZ DZIALA 		
+		<transition on="deleteUser">
+			<evaluate expression="testBean.deleteUser(users.selectedRow.id)"/>
+		</transition>		
+		-->
+		<transition on="deleteProduct">
+			<!-- dluzsza wersja 
+			<set name="flowScope.product" value="products.selectedRow"/>
+			<evaluate expression="testBean.deleteProduct(product)"/>	
+			-->	
+			<evaluate expression="testBean.deleteProduct(products.selectedRow)"/>
+		</transition>		
 	</view-state>
 
 </flow>
