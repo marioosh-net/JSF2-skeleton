@@ -1,0 +1,18 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:sf="http://www.springframework.org/tags/faces"
+	template="/WEB-INF/templates/main.xhtml">
+
+	<!-- menu -->
+	<div id="menu"><a href="start">start</a>&#160;<a href="products">products</a></div>
+	
+	<div>Product ID: #{product.id}</div>
+	<div>Product Name: #{product.name}</div> 
+	<h:form>
+		<h:commandLink action="back" value="Powrót" />
+	</h:form>
+	
+</ui:composition>
