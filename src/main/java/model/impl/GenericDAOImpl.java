@@ -9,6 +9,8 @@ import javax.validation.Validator;
 import javax.validation.ValidatorFactory;
 import model.dao.GenericDAO;
 import org.apache.log4j.Logger;
+import org.hibernate.criterion.CriteriaSpecification;
+import org.hibernate.criterion.DetachedCriteria;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
 public class GenericDAOImpl<T> extends HibernateDaoSupport implements GenericDAO<T> {
@@ -69,6 +71,11 @@ public class GenericDAOImpl<T> extends HibernateDaoSupport implements GenericDAO
 		if (violations.size() > 0){
 			throw new ValidationException("Błąd walidacji!");
 		}
+	}
+
+	@Override
+	public List<T> find(DetachedCriteria criteria, int firstResult, int maxResults) {
+		return getHibernateTemplate().findByCriteria(criteria, firstResult, maxResults);
 	}
 	 
 }
