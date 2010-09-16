@@ -8,8 +8,10 @@
 	<!-- menu -->
 	<div id="menu"><a href="start">start</a>&#160;<a href="products">products</a></div>
 	
+	<div>#{testBean.time}</div>
+	
 	<h:form id="form1">
-		#{testBean.time}
+		<div>#{testBean.time}</div>
 		<h:commandLink value="add random user" action="addUser">
 			<f:ajax render="@form" />
 		</h:commandLink>
@@ -27,7 +29,7 @@
 					<td>#{user.pass}</td>
 					<td>
 						<h:commandLink value="delete" action="deleteUser">
-							<f:ajax render="@form" />
+							<f:ajax render="@form :form2" />
 						</h:commandLink>
 					</td>
 				</tr>
@@ -36,7 +38,7 @@
 	</h:form>
 	
 	<h:form id="form2">
-		#{testBean.time}
+		<div>#{testBean.time}</div>
 		<h:commandLink value="add random product" action="addProduct">
 			<f:ajax render="@form" />
 		</h:commandLink>
