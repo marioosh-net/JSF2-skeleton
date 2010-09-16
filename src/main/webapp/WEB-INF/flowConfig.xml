@@ -46,4 +46,13 @@
 	<bean id="facesContextListener" class="org.springframework.faces.webflow.FlowFacesContextLifecycleListener" />
 	<!-- 2.2.0M1 END -->
 
+	<!-- zeby by widziany jsf.js -->
+	<!-- http://blog.springsource.com/2010/08/05/spring-web-flow-2-2-0-m1-released/ -->
+	<bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+		<property name="mappings" value="/javax.faces.resource/**=jsfResourceHandler" />
+	</bean>
+	<!-- <bean class="org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter" /> -->
+	<bean id="jsfResourceHandler" class="org.springframework.faces.webflow.FacesJsfResourceRequestHandler" />
+	<!-- zeby by widziany jsf.js END -->
+
 </beans>
