@@ -51,7 +51,6 @@
 	<bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
 		<property name="mappings" value="/javax.faces.resource/**=jsfResourceHandler" />
 	</bean>
-	<!-- <bean class="org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter" /> -->
 	<bean id="jsfResourceHandler" class="org.springframework.faces.webflow.FacesJsfResourceRequestHandler" />
 	<!-- zeby by widziany jsf.js END -->
 

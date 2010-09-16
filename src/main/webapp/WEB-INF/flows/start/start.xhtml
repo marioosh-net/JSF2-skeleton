@@ -7,6 +7,14 @@
 	<!-- menu -->
 	<div id="menu"><a href="start">start</a>&#160;<a href="products">products</a></div>
 	
+	<!-- f:ajax works -->
+	<h:form>
+		#{testBean.time}
+		<h:commandButton value="ajax test">
+			<f:ajax render="@form" />
+		</h:commandButton>
+	</h:form>
+		
 	#{helloBean.message}:#{testBean.time}
 	
 	<h:form id="form1">
@@ -31,17 +39,6 @@
 	<div>
 		<h:form>
 			<h:commandButton value="go" action="go"/>
-		</h:form>
-	</div>
-	
-	<div>
-		<h:form id="f2">
-			<h:commandButton value="ajax" action="ajax">
-				<f:ajax render="f2:reloadMe" />
-			</h:commandButton>
-			<h:panelGroup id="reloadMe">
-				#{testBean.time}
-			</h:panelGroup>
 		</h:form>
 	</div>
 	

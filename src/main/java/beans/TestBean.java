@@ -13,7 +13,7 @@ import model.entities.User;
 import utils.FacesUtil;
 import utils.UndefinedUtils;
 
-@ManagedBean(name="tb")
+@ManagedBean
 @RequestScoped
 public class TestBean extends BaseBean {
 	private static final long serialVersionUID = 1L;
