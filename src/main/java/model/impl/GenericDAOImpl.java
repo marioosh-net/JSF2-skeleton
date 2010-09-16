@@ -8,6 +8,7 @@ import javax.validation.ValidationException;
 import javax.validation.Validator;
 import javax.validation.ValidatorFactory;
 import model.dao.GenericDAO;
+import model.entities.User;
 import org.apache.log4j.Logger;
 import org.hibernate.criterion.CriteriaSpecification;
 import org.hibernate.criterion.DetachedCriteria;
@@ -79,8 +80,9 @@ public class GenericDAOImpl<T> extends HibernateDaoSupport implements GenericDAO
 	}
 
 	@Override
-	public List<T> findAll(DetachedCriteria criteria) {
-		return getHibernateTemplate().findByCriteria(criteria);
+	public List<T> findAll(int firstResult, int maxResults) {
+		DetachedCriteria criteria = DetachedCriteria.forClass(persistentClass);
+		return getHibernateTemplate().findByCriteria(criteria, firstResult, maxResults);
 	}
 	 
 }
