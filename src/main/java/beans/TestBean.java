@@ -60,10 +60,12 @@ public class TestBean extends BaseBean {
 	}
 	
 	public List<User> getAllUsers() {
+		getLog().debug("getAllUsers()");
 		return getUserDAO().findAll();
 	}
 
 	public List<Product> getAllProducts() {
+		getLog().debug("getAllProducts()");
 		return getProductDAO().findAll();
 	}
 
@@ -83,22 +85,12 @@ public class TestBean extends BaseBean {
 		return null;
 	}
 
-	public String deleteUser() {
-		return null;
+	public void deleteUser(User user) {
+		getUserDAO().delete(user);
 	}
 
-	public void deleteUser(ActionEvent event) {
-		Integer id = Integer.parseInt(FacesUtil.getRequestParameter("id"));
-		getUserDAO().delete(getUserDAO().get(id));
-	}
-
-	public String deleteProduct() {
-		return null;
-	}
-
-	public void deleteProduct(ActionEvent event) {
-		Integer id = Integer.parseInt(FacesUtil.getRequestParameter("id"));
-		getProductDAO().delete(getProductDAO().get(id));
+	public void deleteProduct(Product product) {
+		getProductDAO().delete(product);
 	}
 
 }

@@ -8,8 +8,14 @@
 	<!-- menu -->
 	<div id="menu"><a href="start">start</a>&#160;<a href="products">products</a></div>
 	
-	<h:form>
 	
+	<!-- test - h:commandLink nie dziala ????! -->
+	<h:form>
+		<h:commandButton value="add random user" action="addUser" />
+		<h:commandLink value="add random user" action="addUser" />
+	</h:form>	
+	
+	<h:form>
 		<h:commandButton value="add random user" action="addUser" />
 		<table border="1">
 			<tr>
@@ -18,18 +24,14 @@
 				<td>pass</td>
 				<td />
 			</tr>
-			<c:forEach items="#{testBean.allUsers}" var="user">
+			<ui:repeat value="#{users}" var="user" id="users1">			
 				<tr>
 					<td>#{user.id}</td>
 					<td>#{user.login}</td>
 					<td>#{user.pass}</td>
-					<td><h:commandLink value="delete"
-						actionListener="#{testBean.deleteUser}"
-						action="#{testBean.deleteUser}">
-						<f:param name="id" value="#{user.id}" />
-					</h:commandLink></td>
+					<td><h:commandButton value="delete" action="deleteUser"/></td>
 				</tr>
-			</c:forEach>
+			</ui:repeat>
 		</table>
 	
 		<h:commandButton value="add random product" action="addProduct" />
@@ -40,18 +42,14 @@
 				<td>owner id</td>
 				<td />
 			</tr>
-			<c:forEach items="#{tb.allProducts}" var="product">
+			<ui:repeat value="#{products}" var="product" id="products1">			
 				<tr>
 					<td>#{product.id}</td>
 					<td>#{product.name}</td>
 					<td>#{product.owner.id}</td>
-					<td><h:commandLink value="delete"
-						actionListener="#{testBean.deleteProduct}"
-						action="#{testBean.deleteProduct}">
-						<f:param name="id" value="#{product.id}" />
-					</h:commandLink></td>
+					<td><h:commandButton value="delete" action="deleteProduct"/></td>
 				</tr>
-			</c:forEach>
+			</ui:repeat>
 		</table>
 	</h:form>	
 		

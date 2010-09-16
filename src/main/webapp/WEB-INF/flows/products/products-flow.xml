@@ -6,12 +6,27 @@
 
 	<var name="testBean" class="beans.TestBean"/>
 	<view-state id="list">
+		<!-- Actions to execute immediately before view rendering. -->
+		<on-render>
+			<evaluate expression="testBean.getAllUsers()" result-type="dataModel" result="flowScope.users"/>
+			<evaluate expression="testBean.getAllProducts()" result-type="dataModel" result="flowScope.products"/>
+		</on-render>
+		
+		<transition on="deleteUser">
+			<set name="flowScope.user" value="users.selectedRow"/>
+			<evaluate expression="testBean.deleteUser(user)"/>
+		</transition>
+		<transition on="deleteProduct">
+			<set name="flowScope.product" value="products.selectedRow"/>
+			<evaluate expression="testBean.deleteProduct(product)"/>
+		</transition>		
+		
+		<transition on="addUser">
+			<evaluate expression="testBean.addRandomUser()"/>
+		</transition>	
 		<transition on="addProduct">
 			<evaluate expression="testBean.addRandomProduct()"/>
 		</transition>
-		<transition on="addUser">
-			<evaluate expression="testBean.addRandomUser()"/>
-		</transition>		
 	</view-state>
 
 </flow>
