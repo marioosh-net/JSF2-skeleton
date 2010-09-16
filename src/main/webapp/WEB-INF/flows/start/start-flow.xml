@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow xmlns="http://www.springframework.org/schema/webflow"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:faces="http://www.springframework.org/schema/faces"
+	xsi:schemaLocation="http://www.springframework.org/schema/webflow
+						http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd">
+	
+	<!-- flow variables -->
+	<!-- w jsf #{helloBean} -->
+	<var name="helloBean" class="beans.HelloBean" />
+	
+	<!-- pierwszy view-state jest startowym -->	
+	<view-state id="start">
+		
+		<transition on="yes">
+			<set name="helloBean.message" value="'Kliknales TAK'" />
+
+			<!-- flowScope.hash -> w jsf #{hash}-->
+			<evaluate expression="helloBean.nextRandomString()" result="flowScope.hash" />
+			<render fragments="time" />
+		</transition>
+		
+		<transition on="no">
+			<set name="helloBean.message" value="'Kliknales NIE'" />
+		</transition>
+		
+		<!-- skok do action-state, czyli wykonanie akcji -->
+		<transition on="go" to="action1"/>
+
+		<transition on="ajax" >
+			<render fragments="f2:reloadMe"/>
+		</transition>
+	</view-state>
+	
+	<!-- w zaleznosci co zwroci expression mozemy skoczyc tu lub tam -->
+	<action-state id="action1">
+		<evaluate expression="helloBean.action()"/>
+		<transition on="good" to="end"/>
+		<transition on="bad" to="start"/>
+	</action-state>
+
+	<!-- strona bledu -->
+	<view-state id="error">
+		<transition on="start" to="start" />
+	</view-state>
+	
+	<!-- 
+	<view-state id="end">
+		<transition on="start" to="start" />
+	</view-state>
+	-->
+	
+	<!-- end-state: konczy flow, obiekty beda tworzone na nowo -->
+	<!-- <end-state id="end" view="/WEB-INF/flows/end.xhtml" /> -->
+	<end-state id="end" view="end.xhtml" />
+	
+	<!-- tranzycje dostepne z kazdego state'a -->
+	<!-- 
+	<global-transitions>
+		<transition on-exception="java.lang.Throwable" to="error" />
+	</global-transitions>
+	 -->
+
+</flow>

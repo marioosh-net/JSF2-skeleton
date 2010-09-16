@@ -2,6 +2,6 @@
 <html>
 <head></head>
 	<body>
-		<jsp:forward page="/spring/start-flow" />
+		<jsp:forward page="/spring/start" />
 	</body>
 </html>

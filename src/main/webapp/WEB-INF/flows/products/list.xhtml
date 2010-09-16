@@ -1,0 +1,35 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:c="http://java.sun.com/jstl/core"
+	template="/WEB-INF/templates/main.xhtml">
+
+	<!-- menu -->
+	<div id="menu"><a href="start">start</a>&#160;<a href="products">products</a></div>
+	
+	<h:form>
+		<h:commandLink value="add random product" action="#{testBean.addRandomProduct}" />
+		<table border="1">
+			<tr>
+				<td>id</td>
+				<td>name</td>
+				<td>owner id</td>
+				<td />
+			</tr>
+			<c:forEach items="#{testBean.allProducts}" var="product">
+				<tr>
+					<td>#{product.id}</td>
+					<td>#{product.name}</td>
+					<td>#{product.owner.id}</td>
+					<td><h:commandLink value="delete"
+						actionListener="#{testBean.deleteProduct}"
+						action="#{testBean.deleteProduct}">
+						<f:param name="id" value="#{product.id}" />
+					</h:commandLink></td>
+				</tr>
+			</c:forEach>
+		</table>
+	</h:form>	
+		
+</ui:composition>

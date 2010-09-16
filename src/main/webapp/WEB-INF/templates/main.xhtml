@@ -1,0 +1,23 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:c="http://java.sun.com/jsp/jstl/core">
+      
+  	<!-- JSF 2.0 - jak sie nie uzyje h:head to ajax nie dziala, bo nie zostanie dodane:
+  	<script type="text/javascript" src=".../javax.faces.resource/jsf.js.jsf?ln=javax.faces"></script> 
+  	-->
+	<h:head>
+		<title>jsf2 + swf</title>
+		<link rel="stylesheet" type="text/css"	href="#{request.contextPath}/css/main.css" />
+		<script type="text/javascript" src="#{request.contextPath}/js/main.js"></script>
+	</h:head>
+	
+	<h:body>
+		<div id="page">
+			<ui:insert/>
+		</div>
+	</h:body>
+
+</html>

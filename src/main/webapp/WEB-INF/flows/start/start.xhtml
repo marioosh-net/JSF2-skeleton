@@ -1,0 +1,48 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	template="/WEB-INF/templates/main.xhtml">
+
+	<!-- menu -->
+	<div id="menu"><a href="start">start</a>&#160;<a href="products">products</a></div>
+	
+	#{helloBean.message}:#{testBean.time}
+	
+	<h:form id="form1">
+		<h:commandButton value="Ajax Update" actionListener="#{testBean.testActionListener}" action="#{testBean.testAction}" >
+			<f:ajax render="form1:updateMe" />
+		</h:commandButton>
+		<h:panelGroup id="updateMe">
+			#{testBean.time}
+		</h:panelGroup>
+		#{testBean.text}
+	</h:form>
+	
+	<div id="time">#{testBean.time}</div>
+	
+	<h:form>
+		<h:commandButton value="yes" action="yes"/>
+		<h:commandButton value="no" action="no"/>
+	</h:form>
+	
+	<div>#{hash}</div>
+	
+	<div>
+		<h:form>
+			<h:commandButton value="go" action="go"/>
+		</h:form>
+	</div>
+	
+	<div>
+		<h:form id="f2">
+			<h:commandButton value="ajax" action="ajax">
+				<f:ajax render="f2:reloadMe" />
+			</h:commandButton>
+			<h:panelGroup id="reloadMe">
+				#{testBean.time}
+			</h:panelGroup>
+		</h:form>
+	</div>
+	
+</ui:composition>

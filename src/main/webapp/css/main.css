@@ -1,0 +1,9 @@
+@CHARSET "UTF-8";
+#page {
+
+}
+#menu {
+	margin-bottom: 10px;
+	border-bottom: 1px solid silver;
+	padding-bottom: 5px;
+}

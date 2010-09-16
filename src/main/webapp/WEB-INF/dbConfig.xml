@@ -33,14 +33,12 @@
 				-->
 			</props>
 		</property>
-		<!-- 		
 		<property name="annotatedClasses">
 			<list>
 				<value>model.entities.User</value>
 				<value>model.entities.Product</value>
 			</list>
 		</property>
-		-->
 	</bean>
 
 	<bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
@@ -52,13 +50,13 @@
 	<!-- wlaczenie adnotacji @transactional -->
 	<tx:annotation-driven transaction-manager="transactionManager" />
 
-	<!-- dao
-	<bean id="userDAO" class="loogberry.model.impl.UserDAOImpl">
+	<!-- dao -->
+	<bean id="userDAO" class="model.impl.UserDAOImpl">
 		<property name="sessionFactory" ref="hibernateSessionFactory" />
 	</bean>
-	<bean id="productDAO" class="loogberry.model.impl.ProductDAOImpl"> 
+	<bean id="productDAO" class="model.impl.ProductDAOImpl"> 
 		<property name="sessionFactory" ref="hibernateSessionFactory" /> 
 	</bean>
-	-->
+	<!-- dao end -->
 
 </beans>
