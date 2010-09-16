@@ -8,8 +8,11 @@
 	<!-- menu -->
 	<div id="menu"><a href="start">start</a>&#160;<a href="products">products</a></div>
 	
-	<h:form>
-		<h:commandLink value="add random user" action="addUser" />
+	<h:form id="form1">
+		#{testBean.time}
+		<h:commandLink value="add random user" action="addUser">
+			<f:ajax render="@form" />
+		</h:commandLink>
 		<table border="1">
 			<tr>
 				<td>id</td>
@@ -22,12 +25,21 @@
 					<td>#{user.id}</td>
 					<td>#{user.login}</td>
 					<td>#{user.pass}</td>
-					<td><h:commandLink value="delete" action="deleteUser"/></td>
+					<td>
+						<h:commandLink value="delete" action="deleteUser">
+							<f:ajax render="@form" />
+						</h:commandLink>
+					</td>
 				</tr>
 			</ui:repeat>
 		</table>
+	</h:form>
 	
-		<h:commandLink value="add random product" action="addProduct" />
+	<h:form id="form2">
+		#{testBean.time}
+		<h:commandLink value="add random product" action="addProduct">
+			<f:ajax render="@form" />
+		</h:commandLink>
 		<table border="1">
 			<tr>
 				<td>id</td>
@@ -40,7 +52,11 @@
 					<td>#{product.id}</td>
 					<td>#{product.name}</td>
 					<td>#{product.owner.id}</td>
-					<td><h:commandLink value="delete" action="deleteProduct"/></td>
+					<td>
+						<h:commandLink value="delete" action="deleteProduct">
+							<f:ajax render="@form" />
+						</h:commandLink>
+					</td>
 				</tr>
 			</ui:repeat>
 		</table>
