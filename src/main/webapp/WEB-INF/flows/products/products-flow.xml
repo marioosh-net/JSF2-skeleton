@@ -8,31 +8,37 @@
 	<view-state id="list">
 		<!-- Actions to execute immediately before view rendering. -->
 		<on-render>
-			<evaluate expression="testBean.getAllUsers()" result-type="dataModel" result="flowScope.users"/>
+			<!-- bez wykorzystania dataModel -->
+			<evaluate expression="testBean.getAllUsers()" result="flowScope.users"/>
+			<!-- z wykorzystaniem dataModel -->
 			<evaluate expression="testBean.getAllProducts()" result-type="dataModel" result="flowScope.products"/>
 		</on-render>
+		
 		<transition on="addUser">
 			<evaluate expression="testBean.addRandomUser()"/>
 		</transition>	
+		
 		<transition on="addProduct">
 			<evaluate expression="testBean.addRandomProduct()"/>
 		</transition>
-		<!-- delete by object -->		
+		
 		<transition on="deleteUser">
-			<evaluate expression="testBean.deleteUser(users.selectedRow)"/>
+			<evaluate expression="testBean.deleteUser(deletedUser)"/>
 		</transition>
-		<!-- delete by id - TAK TEZ DZIALA 		
-		<transition on="deleteUser">
-			<evaluate expression="testBean.deleteUser(users.selectedRow.id)"/>
-		</transition>		
-		-->
+		
+		<!-- delete by object -->		
 		<transition on="deleteProduct">
 			<!-- dluzsza wersja 
 			<set name="flowScope.product" value="products.selectedRow"/>
 			<evaluate expression="testBean.deleteProduct(product)"/>	
 			-->	
 			<evaluate expression="testBean.deleteProduct(products.selectedRow)"/>
+		</transition>
+		<!-- delete by id - tak tez dziala 		
+		<transition on="deleteProduct">
+			<evaluate expression="testBean.deleteProduct(products.selectedRow.id)"/>
 		</transition>		
+		-->				
 		
 		<transition on="reloadProducts">
 			<render fragments="form2"/>
@@ -43,12 +49,18 @@
 		</transition>
 		
 		<transition on="details" to="details"/>
+		<transition on="userDetails" to="userDetails"/>
+		
 	</view-state>
 	
 	<view-state id="details">
 		<on-entry>
 			<set name="viewScope.product" value="products.selectedRow"/>
 		</on-entry>
+		<transition on="back" to="list"/>
+	</view-state>
+	
+	<view-state id="userDetails">
 		<transition on="back" to="list"/>
 	</view-state>
 

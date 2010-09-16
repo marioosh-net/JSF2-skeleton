@@ -89,13 +89,13 @@ public class TestBean extends BaseBean {
 		getUserDAO().delete(user);
 	}
 	
-	public void deleteUser(Integer id) {
-		getLog().debug("deleteUser("+id+")");
-		getUserDAO().delete(getUserDAO().get(id));
-	}	
-
 	public void deleteProduct(Product product) {
 		getProductDAO().delete(product);
 	}
 
+	public void deleteProduct(Integer id) {
+		getLog().debug("deleteProduct("+id+")");
+		getProductDao().delete(getProductDao().get(id));
+	}	
+	
 }

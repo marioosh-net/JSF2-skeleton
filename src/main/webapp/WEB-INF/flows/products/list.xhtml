@@ -23,18 +23,26 @@
 				<td>pass</td>
 				<td />
 			</tr>
-			<ui:repeat value="#{users}" var="user" id="users1">			
+			<!-- sposob bez koniczenosci uzycia dataModel i selectedRow 
+			     i wykorzystanie <f:setPropertyActionListener /> -->			
+			<c:forEach items="#{users}" var="user">
 				<tr>
 					<td>#{user.id}</td>
 					<td>#{user.login}</td>
 					<td>#{user.pass}</td>
 					<td>
 						<h:commandLink value="delete" action="deleteUser">
+							<f:setPropertyActionListener target="#{flowScope.deletedUser}" value="#{user}"/>
 							<f:ajax render="@form :form2" />
-						</h:commandLink>
+						</h:commandLink>&#160;
+						
+						<!-- w view details bedzie dostepna zmienna viewedProduct dajaca Product -->
+						<h:commandLink action="userDetails" value="details" >
+							<f:setPropertyActionListener target="#{flowScope.viewedUser}" value="#{user}"/>
+						</h:commandLink>						
 					</td>
 				</tr>
-			</ui:repeat>
+			</c:forEach>
 		</table>
 	</h:form>
 	
@@ -50,6 +58,7 @@
 				<td>owner id</td>
 				<td />
 			</tr>
+			<!-- sposob z wykorzystaniem dataModel i selectedRow -->			
 			<ui:repeat value="#{products}" var="product" id="products1">			
 				<tr>
 					<td>#{product.id}</td>
@@ -59,7 +68,7 @@
 						<h:commandLink value="delete" action="deleteProduct">
 							<f:ajax render="@form" />
 						</h:commandLink>&#160;
-						<h:commandLink value="details" action="details"/>
+						<h:commandLink value="details" action="details"/>&#160;
 					</td>
 				</tr>
 			</ui:repeat>
