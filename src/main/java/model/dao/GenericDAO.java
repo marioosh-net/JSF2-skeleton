@@ -10,5 +10,6 @@ public interface GenericDAO<T> {
 	public void delete(T obj);
 	public T get(Integer id);
 	public List<T> findAll();
+	public List<T> findAll(DetachedCriteria criteria);
 	public List<T> find(DetachedCriteria criteria, int firstResult, int maxResults);
 }

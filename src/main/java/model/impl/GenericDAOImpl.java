@@ -77,5 +77,10 @@ public class GenericDAOImpl<T> extends HibernateDaoSupport implements GenericDAO
 	public List<T> find(DetachedCriteria criteria, int firstResult, int maxResults) {
 		return getHibernateTemplate().findByCriteria(criteria, firstResult, maxResults);
 	}
+
+	@Override
+	public List<T> findAll(DetachedCriteria criteria) {
+		return getHibernateTemplate().findByCriteria(criteria);
+	}
 	 
 }
