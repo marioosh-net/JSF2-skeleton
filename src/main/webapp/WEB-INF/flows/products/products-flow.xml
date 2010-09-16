@@ -33,6 +33,14 @@
 			-->	
 			<evaluate expression="testBean.deleteProduct(products.selectedRow)"/>
 		</transition>		
+		
+		<transition on="reloadProducts">
+			<render fragments="form2"/>
+		</transition>
+		
+		<transition on="reloadFrag">
+			<render fragments="toReload"/>
+		</transition>
 	</view-state>
 
 </flow>
