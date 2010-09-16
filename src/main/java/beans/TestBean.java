@@ -13,13 +13,17 @@ import model.entities.User;
 import utils.FacesUtil;
 import utils.UndefinedUtils;
 
-@ManagedBean
+@ManagedBean(name="tb")
 @RequestScoped
 public class TestBean extends BaseBean {
 	private static final long serialVersionUID = 1L;
 	
 	private String text;
 	private String validatedText;
+	
+	public TestBean() {
+		getLog().debug("TestBean()");
+	}
 
 	public String getText() {
 		return text;

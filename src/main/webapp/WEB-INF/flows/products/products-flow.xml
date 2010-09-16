@@ -6,6 +6,12 @@
 
 	<var name="testBean" class="beans.TestBean"/>
 	<view-state id="list">
+		<transition on="addProduct">
+			<evaluate expression="testBean.addRandomProduct()"/>
+		</transition>
+		<transition on="addUser">
+			<evaluate expression="testBean.addRandomUser()"/>
+		</transition>		
 	</view-state>
 
 </flow>

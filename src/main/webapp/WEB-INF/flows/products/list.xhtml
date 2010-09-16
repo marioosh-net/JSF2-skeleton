@@ -9,7 +9,30 @@
 	<div id="menu"><a href="start">start</a>&#160;<a href="products">products</a></div>
 	
 	<h:form>
-		<h:commandLink value="add random product" action="#{testBean.addRandomProduct}" />
+	
+		<h:commandButton value="add random user" action="addUser" />
+		<table border="1">
+			<tr>
+				<td>id</td>
+				<td>login</td>
+				<td>pass</td>
+				<td />
+			</tr>
+			<c:forEach items="#{testBean.allUsers}" var="user">
+				<tr>
+					<td>#{user.id}</td>
+					<td>#{user.login}</td>
+					<td>#{user.pass}</td>
+					<td><h:commandLink value="delete"
+						actionListener="#{testBean.deleteUser}"
+						action="#{testBean.deleteUser}">
+						<f:param name="id" value="#{user.id}" />
+					</h:commandLink></td>
+				</tr>
+			</c:forEach>
+		</table>
+	
+		<h:commandButton value="add random product" action="addProduct" />
 		<table border="1">
 			<tr>
 				<td>id</td>
@@ -17,7 +40,7 @@
 				<td>owner id</td>
 				<td />
 			</tr>
-			<c:forEach items="#{testBean.allProducts}" var="product">
+			<c:forEach items="#{tb.allProducts}" var="product">
 				<tr>
 					<td>#{product.id}</td>
 					<td>#{product.name}</td>
