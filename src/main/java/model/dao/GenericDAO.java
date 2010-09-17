@@ -9,6 +9,7 @@ public interface GenericDAO<T> {
 	public T update(T obj);
 	public void delete(T obj);
 	public T get(Integer id);
+	public int countAll();
 	public List<T> findAll();
 	public List<T> findAll(int firstResult, int maxResults);
 	public List<T> find(DetachedCriteria criteria, int firstResult, int maxResults);

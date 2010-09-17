@@ -27,17 +27,6 @@ abstract public class BaseBean implements Serializable {
 	}
 
 	/**
-	 * dostep do dao ksiazki
-	 */
-	public UserDAO getUserDao() {
-		return (UserDAO) (FacesUtil.findDaoBean("userDAO"));
-	}
-	
-	public ProductDAO getProductDao() {
-		return (ProductDAO) (FacesUtil.findDaoBean("productDAO"));
-	}
-
-	/**
 	 * dostep do loggera
 	 * 
 	 * @return

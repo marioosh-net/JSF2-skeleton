@@ -75,6 +75,43 @@
 		</table>
 	</h:form>
 	
+	<h:form>
+		<div class="bold">pageable</div>
+		<table border="1">
+			<tr>
+				<td>id</td>
+				<td>name</td>
+				<td>owner id</td>
+				<td />
+			</tr>
+			<!-- sposob z wykorzystaniem dataModel i selectedRow -->			
+			<ui:repeat value="#{productsListBean.elems}" var="product" id="products2">			
+				<tr>
+					<td>#{product.id}</td>
+					<td>#{product.name}</td>
+					<td>#{product.owner.id}</td>
+					<td>
+						<h:commandLink value="delete" action="deleteProduct">
+							<f:ajax render="@form" />
+						</h:commandLink>&#160;
+						<h:commandLink value="details" action="details"/>&#160;
+					</td>
+				</tr>
+			</ui:repeat>
+			<tr>
+				<td colspan="4">
+					<h:commandLink action="prevPage" value="prev">
+						<f:ajax render="@form" />
+					</h:commandLink>&#160;
+					<h:commandLink action="nextPage" value="next">
+						<f:ajax render="@form" />
+					</h:commandLink>
+					&#160;Page: #{productsListBean.page} / #{productsListBean.pagesCount}
+				</td>
+			</tr>
+		</table>
+	</h:form>
+	
 	<h:form id="frag">
 		<ui:fragment id="toReload">
 			<div>#{testBean.time}</div>

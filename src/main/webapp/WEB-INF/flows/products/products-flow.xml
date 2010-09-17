@@ -4,7 +4,10 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/webflow
         http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd">
 
+	<!-- beany dostepne w tym flow -->
 	<var name="testBean" class="beans.TestBean"/>
+	<var name="productsListBean" class="beans.ProductsListBean"/>
+	
 	<view-state id="list">
 		<!-- Actions to execute immediately before view rendering. -->
 		<on-render>
@@ -52,6 +55,14 @@
 		
 		<transition on="reloadFrag">
 			<render fragments="toReload"/>
+		</transition>
+		
+		<!-- przewijanie listy produktow -->
+		<transition on="prevPage">
+			<evaluate expression="productsListBean.prevPage()"/>
+		</transition>
+		<transition on="nextPage">
+			<evaluate expression="productsListBean.nextPage()"/>
 		</transition>
 		
 	</view-state>

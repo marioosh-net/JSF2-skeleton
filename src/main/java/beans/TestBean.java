@@ -95,11 +95,11 @@ public class TestBean extends BaseBean {
 
 	public void deleteProduct(Integer id) {
 		getLog().debug("deleteProduct("+id+")");
-		getProductDao().delete(getProductDao().get(id));
+		getProductDAO().delete(getProductDAO().get(id));
 	}
 	
 	public List<Product> getProductsByUser(User user) {
-		return getProductDao().findByUser(user, 0, 10);
+		return getProductDAO().findByUser(user, 0, 10);
 	}
 	
 }

@@ -12,6 +12,7 @@ import model.entities.User;
 import org.apache.log4j.Logger;
 import org.hibernate.criterion.CriteriaSpecification;
 import org.hibernate.criterion.DetachedCriteria;
+import org.springframework.dao.support.DataAccessUtils;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
 public class GenericDAOImpl<T> extends HibernateDaoSupport implements GenericDAO<T> {
@@ -84,5 +85,9 @@ public class GenericDAOImpl<T> extends HibernateDaoSupport implements GenericDAO
 		DetachedCriteria criteria = DetachedCriteria.forClass(persistentClass);
 		return getHibernateTemplate().findByCriteria(criteria, firstResult, maxResults);
 	}
-	 
+
+	@Override
+	public int countAll() {
+		return DataAccessUtils.intResult(getHibernateTemplate().find("select count(*) from "+persistentClass.getCanonicalName()));
+	}
 }
