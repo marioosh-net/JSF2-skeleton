@@ -108,7 +108,7 @@
 					</h:commandLink>&#160;
 					<!-- pages -->
 					<ui:repeat value="#{productsListBean.naviPages}" var="p">
-						<h:commandLink value="#{p}" action="setPage" >
+						<h:commandLink value="#{p}" action="setPage" disabled="#{p == productsListBean.page + 1 ? 'true' : 'false'}" >
 							<f:setPropertyActionListener target="#{flowScope.page}" value="#{p - 1}"></f:setPropertyActionListener>
 							<f:ajax render="@form" />
 						</h:commandLink>&#160;
