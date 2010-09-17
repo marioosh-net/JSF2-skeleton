@@ -41,7 +41,9 @@
 		-->				
 		
 		<transition on="details" to="details"/>
-		<transition on="userDetails" to="userDetails"/>
+		<transition on="userDetails" to="userDetails">
+			<evaluate expression="testBean.getProductsByUser(flowScope.viewedUser)" result="flowScope.userProducts"/>
+		</transition>
 		
 		<transition on="reloadProducts">
 			<render fragments="form2"/>

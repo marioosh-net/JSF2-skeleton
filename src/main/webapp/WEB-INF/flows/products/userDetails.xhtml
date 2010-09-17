@@ -12,10 +12,12 @@
 	<div>User ID: #{viewedUser.id}</div>
 	<div>User login: #{viewedUser.login}</div>
 	<div>User pass: #{viewedUser.pass}</div>
-	
-	<ui:repeat var="product" value="#{testBean.getProductsByUser(viewedUser)}">
+
+	<div>user products:</div>	
+	<ui:repeat var="product" value="#{userProducts}">
 		<div>#{product.id}:#{product.name}</div>
-	</ui:repeat>	 
+	</ui:repeat>
+ 
 	<h:form>
 		<h:commandLink action="back" value="back" />
 	</h:form>

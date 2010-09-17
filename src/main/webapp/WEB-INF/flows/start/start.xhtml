@@ -6,6 +6,11 @@
 
 	<!-- menu -->
 	<div id="menu"><a href="start">start</a>&#160;<a href="products">products</a></div>
+
+	<f:metadata>
+  		<f:viewParam name="text" value="#{testBean.text}"/>
+	</f:metadata>
+	<div>TEXT:#{testBean.text}</div>
 	
 	<!-- f:ajax works -->
 	<h:form>
