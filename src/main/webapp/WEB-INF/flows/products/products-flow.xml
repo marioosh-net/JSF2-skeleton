@@ -42,6 +42,7 @@
 		
 		<transition on="details" to="details"/>
 		<transition on="userDetails" to="userDetails">
+			<!-- flowScope.viewedUser ustawione przez f:setPropertyActionListener -->
 			<evaluate expression="testBean.getProductsByUser(flowScope.viewedUser)" result="flowScope.userProducts"/>
 		</transition>
 		
