@@ -9,11 +9,12 @@
 	<!-- menu -->
 	<div id="menu"><a href="start">start</a>&#160;<a href="products">products</a></div>
 	
+	<div class="bold">User details</div>
 	<div>User ID: #{viewedUser.id}</div>
 	<div>User login: #{viewedUser.login}</div>
 	<div>User pass: #{viewedUser.pass}</div>
 
-	<div>user products:</div>	
+	<div class="bold">User products</div>	
 	<ui:repeat var="product" value="#{userProducts}">
 		<div>#{product.id}:#{product.name}</div>
 	</ui:repeat>
