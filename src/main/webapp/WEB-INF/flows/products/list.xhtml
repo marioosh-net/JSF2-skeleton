@@ -33,7 +33,7 @@
 					<td>
 						<h:commandLink value="delete" action="deleteUser">
 							<f:setPropertyActionListener target="#{flowScope.deletedUser}" value="#{user}"/>
-							<f:ajax render="@form :form2" />
+							<f:ajax render="@form :form3" />
 						</h:commandLink>&#160;
 						
 						<!-- w view details bedzie dostepna zmienna viewedProduct dajaca Product -->
@@ -46,38 +46,13 @@
 		</table>
 	</h:form>
 	
-	<h:form id="form2">
+	<h:form id="form3">
 		<div>#{testBean.time}</div>
 		<h:commandLink value="add random product" action="addProduct">
 			<f:ajax render="@form :form3" />
 		</h:commandLink>
-		<table border="1">
-			<tr>
-				<td>id</td>
-				<td>name</td>
-				<td>owner id</td>
-				<td />
-			</tr>
-			<!-- sposob z wykorzystaniem dataModel i selectedRow -->			
-			<ui:repeat value="#{products}" var="product" id="products1">			
-				<tr>
-					<td>#{product.id}</td>
-					<td>#{product.name}</td>
-					<td>#{product.owner.id}</td>
-					<td>
-						<h:commandLink value="delete" action="deleteProduct">
-							<f:ajax render="@form :form3" />
-						</h:commandLink>&#160;
-						<h:commandLink value="details" action="details"/>&#160;
-					</td>
-				</tr>
-			</ui:repeat>
-		</table>
-	</h:form>
-	
-	<h:form id="form3">
-		<div>#{testBean.time}</div>
-		<div class="bold">pageable</div>
+		
+		<div class="bold">pageable</div>		
 		<table border="1">
 			<tr>
 				<td>id</td>
