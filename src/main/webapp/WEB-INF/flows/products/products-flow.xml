@@ -49,10 +49,6 @@
 			<evaluate expression="testBean.getProductsByUser(flowScope.viewedUser)" result="flowScope.userProducts"/>
 		</transition>
 		
-		<transition on="reloadProducts">
-			<render fragments="form2"/>
-		</transition>
-		
 		<transition on="reloadFrag">
 			<render fragments="toReload"/>
 		</transition>
