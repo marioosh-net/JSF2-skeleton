@@ -49,7 +49,9 @@ public abstract class AbstractListBean<Elem> extends BaseBean {
 			// pierwsza ostatnia, 3 w przod, 3 w tyl
 			if(/*i != getPage() &&*/ (i == offset || i == pageCount + offset - 1 || (i - getPage() <= 3 && i - getPage() >= 0) || (getPage() - i <= 3 && getPage() - i >= 0))) {
 				if(!(j - i == 1 || i - j == 1)) {
-					l.add(new Integer(-1));	// -1 to bedzie 3 kropki
+					// -1 to bedzie 3 kropki
+					l.add(new Integer(-1));
+					
 				}				
 				l.add(new Integer(i));
 				j = i;
