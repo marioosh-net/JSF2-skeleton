@@ -64,6 +64,9 @@
 		<transition on="nextPage">
 			<evaluate expression="productsListBean.nextPage()"/>
 		</transition>
+		<transition on="setPage">
+			<evaluate expression="productsListBean.setPage(flowScope.page)"/>
+		</transition>
 		
 	</view-state>
 	

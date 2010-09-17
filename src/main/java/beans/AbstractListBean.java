@@ -43,6 +43,7 @@ public abstract class AbstractListBean<Elem> extends BaseBean {
 	
 	public List<Integer> getNaviPages() {
 		List<Integer> l = new ArrayList<Integer>();
+		getLog().debug("getNaviPages()");
 
 		// numerowanie od 1
 		int offset = 1;//getStartPageNumber();

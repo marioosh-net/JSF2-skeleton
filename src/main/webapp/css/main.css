@@ -11,3 +11,7 @@
 .bold {
 	font-weight: bold;
 }
+
+form {
+	border: 1px solid #D3CAAA;
+}

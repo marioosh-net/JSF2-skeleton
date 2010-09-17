@@ -49,7 +49,7 @@
 	<h:form id="form2">
 		<div>#{testBean.time}</div>
 		<h:commandLink value="add random product" action="addProduct">
-			<f:ajax render="@form" />
+			<f:ajax render="@form :form3" />
 		</h:commandLink>
 		<table border="1">
 			<tr>
@@ -66,14 +66,17 @@
 					<td>#{product.owner.id}</td>
 					<td>
 						<h:commandLink value="delete" action="deleteProduct">
-							<f:ajax render="@form" />
+							<f:ajax render="@form :form3" />
 						</h:commandLink>&#160;
 						<h:commandLink value="details" action="details"/>&#160;
 					</td>
 				</tr>
 			</ui:repeat>
 		</table>
-
+	</h:form>
+	
+	<h:form id="form3">
+		<div>#{testBean.time}</div>
 		<div class="bold">pageable</div>
 		<table border="1">
 			<tr>
@@ -101,8 +104,11 @@
 					<h:commandLink action="prevPage" value="prev">
 						<f:ajax render="@form" />
 					</h:commandLink>&#160;
-					<ui:repeat var="#{productsListBean.naviPages}" value="p">
-						<h:commandLink value="#{p}" />
+					<ui:repeat value="#{productsListBean.naviPages}" var="p">
+						<h:commandLink value="#{p}" action="setPage" >
+							<f:setPropertyActionListener target="#{flowScope.page}" value="#{p - 1}"></f:setPropertyActionListener>
+							<f:ajax render="@form" />
+						</h:commandLink>&#160;
 					</ui:repeat>
 					<h:commandLink action="nextPage" value="next">
 						<f:ajax render="@form" />
