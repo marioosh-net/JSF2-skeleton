@@ -14,7 +14,7 @@
 			<!-- bez wykorzystania dataModel -->
 			<evaluate expression="testBean.getAllUsers()" result="flowScope.users"/>
 			<!-- z wykorzystaniem dataModel -->
-			<evaluate expression="testBean.getAllProducts()" result-type="dataModel" result="flowScope.products"/>
+			<evaluate expression="productsListBean.getElems()" result-type="dataModel" result="flowScope.products"/>
 		</on-render>
 		
 		<transition on="addUser">
