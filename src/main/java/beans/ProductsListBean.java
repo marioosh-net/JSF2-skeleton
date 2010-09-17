@@ -22,4 +22,9 @@ public class ProductsListBean extends AbstractListBean<Product> {
 		return 5;
 	}
 
+	@Override
+	public int getStartPageNumber() {
+		return 1;
+	}
+
 }

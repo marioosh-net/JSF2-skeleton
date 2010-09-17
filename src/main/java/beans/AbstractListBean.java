@@ -8,9 +8,17 @@ public abstract class AbstractListBean<Elem> extends BaseBean {
 	private static final long serialVersionUID = 1L;
 	protected int page;
 	
+	/** lista elementow **/
 	abstract public List<Elem> getElems();
-	abstract public int getCountAll();	
+	
+	/** wszystkich elementow **/
+	abstract public int getCountAll();
+	
+	/** elementow na strone **/
 	abstract public int getElemsPerPage();
+	
+	/** numerowanie stron od... ? **/
+	abstract public int getStartPageNumber();
 	
 	public int getPage() {
 		return page;
@@ -26,7 +34,7 @@ public abstract class AbstractListBean<Elem> extends BaseBean {
 	}
 	
 	public void nextPage() {
-		setPage(getPage() < getPagesCount() ? getPage() + 1 : getPage());
+		setPage(getPage() + 1 < getPagesCount() ? getPage() + 1 : getPage());
 	}
 
 	public void prevPage() {
@@ -37,7 +45,7 @@ public abstract class AbstractListBean<Elem> extends BaseBean {
 		List<Integer> l = new ArrayList<Integer>();
 
 		// numerowanie od 1
-		int offset = 1;
+		int offset = 1;//getStartPageNumber();
 		for(int i = offset, j = 0; i < getPagesCount() + offset; i++) {
 			// pierwsza ostatnia, 3 w przod, 3 w tyl
 			if(/*i != getPage() &&*/ (i == offset || i == getPagesCount() + offset - 1 || (i - getPage() <= 3 && i - getPage() >= 0) || (getPage() - i <= 3 && getPage() - i >= 0))) {
@@ -48,6 +56,7 @@ public abstract class AbstractListBean<Elem> extends BaseBean {
 				j = i;
 			}
 		}
+		getLog().debug("NAVI: "+l);
 		return l;		
 	}
 

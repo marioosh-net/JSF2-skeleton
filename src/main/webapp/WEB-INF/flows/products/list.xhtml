@@ -73,9 +73,7 @@
 				</tr>
 			</ui:repeat>
 		</table>
-	</h:form>
-	
-	<h:form>
+
 		<div class="bold">pageable</div>
 		<table border="1">
 			<tr>
@@ -103,10 +101,13 @@
 					<h:commandLink action="prevPage" value="prev">
 						<f:ajax render="@form" />
 					</h:commandLink>&#160;
+					<ui:repeat var="#{productsListBean.naviPages}" value="p">
+						<h:commandLink value="#{p}" />
+					</ui:repeat>
 					<h:commandLink action="nextPage" value="next">
 						<f:ajax render="@form" />
 					</h:commandLink>
-					&#160;Page: #{productsListBean.page} / #{productsListBean.pagesCount}
+					&#160;Page: #{productsListBean.page + productsListBean.startPageNumber} / #{productsListBean.pagesCount}
 				</td>
 			</tr>
 		</table>
