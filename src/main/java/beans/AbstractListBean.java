@@ -17,9 +17,6 @@ public abstract class AbstractListBean<Elem> extends BaseBean {
 	/** elementow na strone **/
 	abstract public int getElemsPerPage();
 	
-	/** numerowanie stron od... ? **/
-	abstract public int getStartPageNumber();
-	
 	public int getPage() {
 		return page;
 	}
@@ -46,10 +43,11 @@ public abstract class AbstractListBean<Elem> extends BaseBean {
 		getLog().debug("getNaviPages()");
 
 		// numerowanie od 1
-		int offset = 1;//getStartPageNumber();
-		for(int i = offset, j = 0; i < getPagesCount() + offset; i++) {
+		int offset = 1;
+		int pageCount = getPagesCount();
+		for(int i = offset, j = 0; i < pageCount + offset; i++) {
 			// pierwsza ostatnia, 3 w przod, 3 w tyl
-			if(/*i != getPage() &&*/ (i == offset || i == getPagesCount() + offset - 1 || (i - getPage() <= 3 && i - getPage() >= 0) || (getPage() - i <= 3 && getPage() - i >= 0))) {
+			if(/*i != getPage() &&*/ (i == offset || i == pageCount + offset - 1 || (i - getPage() <= 3 && i - getPage() >= 0) || (getPage() - i <= 3 && getPage() - i >= 0))) {
 				if(!(j - i == 1 || i - j == 1)) {
 					l.add(new Integer(-1));	// -1 to bedzie 3 kropki
 				}				

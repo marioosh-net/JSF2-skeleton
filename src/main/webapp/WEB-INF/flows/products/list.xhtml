@@ -99,23 +99,29 @@
 					</td>
 				</tr>
 			</ui:repeat>
+			<!-- navi -->
 			<tr>
 				<td colspan="4">
+					<!-- prev -->
 					<h:commandLink action="prevPage" value="prev">
 						<f:ajax render="@form" />
 					</h:commandLink>&#160;
+					<!-- pages -->
 					<ui:repeat value="#{productsListBean.naviPages}" var="p">
 						<h:commandLink value="#{p}" action="setPage" >
 							<f:setPropertyActionListener target="#{flowScope.page}" value="#{p - 1}"></f:setPropertyActionListener>
 							<f:ajax render="@form" />
 						</h:commandLink>&#160;
 					</ui:repeat>
+					<!-- next -->
 					<h:commandLink action="nextPage" value="next">
 						<f:ajax render="@form" />
-					</h:commandLink>
-					&#160;Page: #{productsListBean.page + productsListBean.startPageNumber} / #{productsListBean.pagesCount}
+					</h:commandLink>&#160;
+					<!-- status -->
+					Page: #{productsListBean.page + 1} / #{productsListBean.pagesCount}
 				</td>
 			</tr>
+			<!-- navi end -->
 		</table>
 	</h:form>
 	
