@@ -96,6 +96,10 @@ public class TestBean extends BaseBean {
 	public void deleteProduct(Integer id) {
 		getLog().debug("deleteProduct("+id+")");
 		getProductDao().delete(getProductDao().get(id));
-	}	
+	}
+	
+	public List<Product> getProductsByUser(User user) {
+		return getProductDao().findByUser(user, 0, 10);
+	}
 	
 }

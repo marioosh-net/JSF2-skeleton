@@ -5,19 +5,46 @@
       <path-set>
         <pathsSet class="linked-hash-set">
           <string>META-INF/MANIFEST.MF</string>
-          <string>pages/start.xhtml</string>
+          <string>js/jquery.tools.min.js</string>
+          <string>js/main.js</string>
+          <string>js/jquery-1.4.2.min.js</string>
+          <string>css/main.css</string>
           <string>WEB-INF/web.xml</string>
           <string>WEB-INF/dbConfig.xml</string>
           <string>WEB-INF/.faces-config.xml.jsfdia</string>
+          <string>WEB-INF/templates/main.xhtml</string>
+          <string>WEB-INF/flows/products/details.xhtml</string>
+          <string>WEB-INF/flows/products/userDetails.xhtml</string>
+          <string>WEB-INF/flows/products/list.xhtml</string>
+          <string>WEB-INF/flows/products/products-flow.xml</string>
           <string>WEB-INF/flows/test-flow.xml</string>
+          <string>WEB-INF/flows/start/error.xhtml</string>
+          <string>WEB-INF/flows/start/end.xhtml</string>
+          <string>WEB-INF/flows/start/start.xhtml</string>
+          <string>WEB-INF/flows/start/start-flow.xml</string>
           <string>WEB-INF/flowConfig.xml</string>
           <string>WEB-INF/ehcache.xml</string>
           <string>WEB-INF/applicationContext.xml</string>
           <string>WEB-INF/faces-config.xml</string>
           <string>index.jsp</string>
           <string>WEB-INF/classes/log4j.xml</string>
+          <string>WEB-INF/classes/beans/MySessionBean.class</string>
           <string>WEB-INF/classes/beans/TestBean.class</string>
+          <string>WEB-INF/classes/beans/BaseBean.class</string>
           <string>WEB-INF/classes/beans/HelloBean.class</string>
+          <string>WEB-INF/classes/model/entities/User.class</string>
+          <string>WEB-INF/classes/model/entities/Product.class</string>
+          <string>WEB-INF/classes/model/entities/AbstractEntity.class</string>
+          <string>WEB-INF/classes/model/impl/GenericDAOImpl.class</string>
+          <string>WEB-INF/classes/model/impl/UserDAOImpl.class</string>
+          <string>WEB-INF/classes/model/impl/ProductDAOImpl.class</string>
+          <string>WEB-INF/classes/model/dao/UserDAO.class</string>
+          <string>WEB-INF/classes/model/dao/GenericDAO.class</string>
+          <string>WEB-INF/classes/model/dao/ProductDAO.class</string>
+          <string>WEB-INF/classes/utils/FacesUtil.class</string>
+          <string>WEB-INF/classes/utils/FacesUtil$1.class</string>
+          <string>WEB-INF/classes/utils/UndefinedUtils.class</string>
+          <string>WEB-INF/classes/utils/Cookies.class</string>
           <string>WEB-INF/lib/jsf-api-2.1.0-SNAPSHOT.jar</string>
           <string>WEB-INF/lib/jsf-impl-2.1.0-SNAPSHOT.jar</string>
           <string>WEB-INF/lib/jstl-1.2.jar</string>
@@ -31,6 +58,7 @@
           <string>WEB-INF/lib/slf4j-jdk14-1.5.8.jar</string>
           <string>WEB-INF/lib/commons-dbcp-1.4.jar</string>
           <string>WEB-INF/lib/commons-pool-1.5.4.jar</string>
+          <string>WEB-INF/lib/standard-1.1.2.jar</string>
           <string>WEB-INF/lib/spring-webflow-2.2.0.M1.jar</string>
           <string>WEB-INF/lib/commons-logging-1.1.1.jar</string>
           <string>WEB-INF/lib/spring-beans-3.0.3.RELEASE.jar</string>
@@ -79,6 +107,7 @@
           <string>WEB-INF/lib/commons-validator-1.3.1.jar</string>
           <string>WEB-INF/lib/commons-beanutils-1.7.0.jar</string>
           <string>WEB-INF/lib/commons-digester-1.6.jar</string>
+          <string>WEB-INF/lib/servlet-api-2.5.jar</string>
         </pathsSet>
       </path-set>
     </entry>
