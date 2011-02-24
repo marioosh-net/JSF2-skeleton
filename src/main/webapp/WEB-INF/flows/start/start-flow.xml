@@ -54,6 +54,11 @@
 	<!-- <end-state id="end" view="/WEB-INF/flows/end.xhtml" /> -->
 	<end-state id="end" view="end.xhtml" />
 	
+	<!-- tutaj fajne przekierowanie na inny flow np. products -->
+	<end-state id="end2" view="externalRedirect:contextRelative:/spring/products">
+		<output name="out"/>
+	</end-state>
+	
 	<!-- tranzycje dostepne z kazdego state'a -->
 	<!-- 
 	<global-transitions>
