@@ -23,9 +23,30 @@
 					<target>1.5</target>
 				</configuration>
 			</plugin>
+			<plugin>
+				<groupId>org.mortbay.jetty</groupId>
+				<artifactId>maven-jetty-plugin</artifactId>
+				<version>6.1.26</version>
+				<configuration>
+					<connectors>
+						<!-- http -->
+						<connector implementation="org.mortbay.jetty.nio.SelectChannelConnector">
+							<port>8080</port>
+							<maxIdleTime>60000</maxIdleTime>
+						</connector>
+					</connectors>
+					<reload>manual</reload>
+					<scanIntervalSeconds>2</scanIntervalSeconds>
+				</configuration>
+			</plugin>
+			
 		</plugins>
 
 	</build>
+	
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>	
 
 	<repositories>
 		<repository>
@@ -82,7 +103,7 @@
 			<version>2.1.0-SNAPSHOT</version>
 			<scope>compile</scope>
 		</dependency>
-		<!-- wchodza w konfilkt z libami servera 
+		<!-- wchodza w konfilkt z libami servera --> 
 		<dependency>
 			<groupId>javax.el</groupId>
 			<artifactId>el-api</artifactId>
@@ -93,7 +114,7 @@
 			<artifactId>el-impl</artifactId>
 			<version>2.2</version>
 		</dependency>
-		-->
+
 		<!--  -->
 		<!--
 			jsf 1.2 <dependency> <groupId>javax.faces</groupId> <artifactId>jsf-api</artifactId> <version>1.2_02</version> </dependency> <dependency> <groupId>javax.faces</groupId> <artifactId>jsf-impl</artifactId> <version>1.2-b19</version> </dependency> <dependency> <groupId>com.sun.facelets</groupId> <artifactId>jsf-facelets</artifactId> <version>1.1.14</version> </dependency>

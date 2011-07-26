@@ -12,14 +12,9 @@
      
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
 		<property name="driverClassName" value="org.postgresql.Driver" />
-		<!--
 		<property name="url" value="jdbc:postgresql://localhost:5432/test?charSet=UTF-8" />
 		<property name="username" value="test" />
 		<property name="password" value="test" />
-		-->
-		<property name="url" value="jdbc:mysql://localhost/cld?autoReconnect=true" />
-		<property name="username" value="cld" />
-		<property name="password" value="zbc123" />
 	</bean>
 
 	<bean id="hibernateSessionFactory" class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
